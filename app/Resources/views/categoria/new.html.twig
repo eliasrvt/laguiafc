@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <h3>Nueva Categoría</h3>
+        <div class="content80">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input  class="btn btn-default" type="submit" value="Crear" />
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="content80">
+            <ul class="ul-ls-none list-inline">
+                <li>
+                    <a class="btn btn-default" href="{{ path('admin_categoria_index') }}">Volver a la lista</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

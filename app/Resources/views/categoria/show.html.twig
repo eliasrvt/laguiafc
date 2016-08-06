@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Categoria</h3>
+    <div class="content80">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ categorium.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ categorium.nombre }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul class="ul-ls-none list-inline pull-right">
+            <li>
+                <a class="btn btn-default" href="{{ path('admin_categoria_edit', { 'id': categorium.id }) }}"> <i class="fa fa-edit"></i> Editar</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
+                    <button class="btn btn-danger" type="submit"><i class="fa fa-ban"></i> Eliminar categoría</button>
+                {{ form_end(delete_form) }}
+            </li>
+            <li>
+                <a class="btn btn-default" href="{{ path('admin_categoria_index') }}">Volver a la lista</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

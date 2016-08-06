@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}  
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+            <div class="col-md-7">
+                <h1>{{ post.titulo }}</h1>
+            </div>
+            <div class="col-md-5 colmd4-margin">
+                {% if app.user and (is_granted('ROLE_ADMIN') or post.esAutor(app.user)) %}
+                <ul class="list-inline pull-right ">
+                    <li>
+                        <a class="btn btn-default" href="{{ path('post_edit', { 'id': post.id }) }}"><i class="fa fa-pencil"></i> Editar</a>
+                    </li>
+                    <li>
+                        {{ form_start(delete_form) }}
+                           <button class="btn btn-danger" type="submit" value="Delete">
+                               <i class="fa fa-ban"></i> Eliminar
+                           </button>
+                        {{ form_end(delete_form) }}
+                    </li>
+                </ul>
+                {% endif %}
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="content-post">
+                    <div id="galeria">
+                        <div id="galeria_imagen">
+                            <center>
+                                <img class="img-w90" id="imgGaleria" src="{{ vich_uploader_asset(post, 'imagePortadaFile') }}" />
+                            </center>
+                        </div>
+                        <div class="row publicidad text-center">
+                            <!-- Begin BidVertiser code -->
+                            <SCRIPT SRC="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=621923&bid=1555919" TYPE="text/javascript"></SCRIPT>
+                            <!-- End BidVertiser code --> 
+                        </div>
+                        <div id="galeria_miniaturas">
+                            <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="{{ vich_uploader_asset(post, 'imagePortadaFile') }}" />
+                            {% for img in post.galeria.imagenes %}
+                                <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="{{ img.getWebPath() }}" />
+                            {% endfor  %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 hidden-xs">
+                Este contenido se oculta en dispositivo moviles.
+            </div>
+        </div>
+    </div>
+    {% if app.user %}
+        {% include ':post:comentarios.html.twig' %}
+    {% endif %}
+    <a href="{{ path('post_index') }}" class="btn btn-default btn-lg btn-block">Volver</a>
+{% endblock %}

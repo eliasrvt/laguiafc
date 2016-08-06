@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h1>Galeria creation</h1>
+
+            {{ form_start(form) }}
+                {{ form_row(form.nombre) }}
+                <ul id="foto-field-list" data-prototype="{{ form_widget(form.imagenes.vars.prototype)|e }}">
+                    {% for img in form.imagenes %}
+                        <li>{{ form_row(img.imageFile) }}</li>
+                    {% endfor %}
+                </ul>
+                <a class="btn btn-primary" href="#" id="add-another-foto">Add foto</a>
+                <input class="btn btn-success" type="submit" value="Create" />
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <ul class="list-unstyled">
+        <li>
+            <a class="btn btn-default" href="{{ path('admin_galeria_index') }}">Cancelar</a>
+        </li>
+    </ul>
+</div>
+
+{% include ':galeria:add-img-js.html.twig' %}
+{% endblock %}

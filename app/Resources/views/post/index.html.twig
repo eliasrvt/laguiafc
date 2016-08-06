@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-9">
+            {% for post in posts %}
+        <div class="panel panel-default portada-boxshadow">
+          <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">   
+                   <h4>{{ post.titulo }}</h4>
+                   <div class="separador"></div>
+                    {# {% if post.creadoEn %}{{ post.creadoEn|date('d-m-Y H:i:s') }}{% endif %}
+                     {% if post.creadoPor %}{{ post.creadoPor }}{% endif %} #}
+                     {% if post.imagePortadaName %}
+                        <center>
+                        <img src="{{ vich_uploader_asset(post, 'imagePortadaFile') }}" class="img-w90" alt="{{ post.imagePortadaName }}" />
+                        </center>
+                     {% endif %}
+                    <div class="separador"></div>
+                    <ul class="list-unstyled pull-right">
+                        <li>
+                            <a class="li-post" href="{{ path('post_show', { 'slug': post.slug }) }}">Ver Galeria</a>
+                            <a href="#">Descargar</a>
+                        </li>
+                        {% if app.user and (is_granted('ROLE_ADMIN') or post.esAutor(app.user)) %}
+                            <li>
+                                <a href="{{ path('post_edit', { 'id': post.id }) }}">Editar</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="col-md-3 hidden-xs">
+            Este contenido se oculta en dispositivos moviles
+        </div>
+    </div>
+        
+    {#
+    <ul class="pull-right ul-ls-none">
+        <li>
+            <a class="btn btn-success" href="{{ path('post_new') }}"><i class="fa fa-plus"></i> Nuevo Post</a>
+        </li>
+    </ul>
+    #}
+    <div class="navigation text-center">
+        {{ knp_pagination_render(posts) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="panel panel-primary">
+      <div class="panel-heading">
+        Editar Perfil
+      </div>
+      <div class="panel-body">
+      	{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+	    {{ form_widget(form) }}
+		    <div>
+		        <input class="btn btn-primary pull-right" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+		    </div>
+		{{ form_end(form) }}	
+    </div>
+</div>
+
+

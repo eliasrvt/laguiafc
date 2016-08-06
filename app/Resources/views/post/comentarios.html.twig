@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 well">
+		{{ form_start(comentario_form, {"action": path("post_comentar", {"id":post.id}) } ) }}
+			<button type="submit" class="btn btn-primary pull-right">Comentar</button>
+		{{ form_end(comentario_form) }}
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		{% for comentario in post.comentarios if not comentario.respondeA %}
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix" >
+					{{comentario.comentadoPor}}
+				</div>
+				<div class="panel-body">
+				    {{ comentario.contenido }}
+				    <div class="clearfix">
+				    	<form name="comentario" method="post" action="{{ path("post_comentar", {"id":post.id, "comentario_id": comentario.id}) }}">
+							
+							<div class="form-group">
+								<label class="control-label required" for="comentario_contenido">Deja un comentario:</label>
+								<textarea id="comentario_contenido" name="comentario[contenido]" required="required" class="form-control"></textarea>
+							</div>
+							<input type="hidden" id="comentario__token" name="comentario[_token]" class="form-control" value="{{ comentario_form._token.vars.value }}">
+							<button type="submit" class="btn btn-success pull-right">Responder</button>
+						</form>
+				    </div>
+				    <strong>Respuestas:</strong>
+				    {% for respuesta in comentario.respuestas%}
+				    <div class="well">
+				    	{{ respuesta.contenido }}
+				    </div>
+					{% endfor %}
+				</div>
+			</div>	
+		{% endfor %}
+	</div>
+</div>
+{# {% include ':post:responderForm.html.twig' %} #}
+

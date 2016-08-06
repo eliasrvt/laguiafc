@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>Galerias</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for galerium in galerias %}
+            <tr>
+                <td><a href="{{ path('admin_galeria_show', { 'id': galerium.id }) }}">{{ galerium.id }}</a></td>
+                <td>{{ galerium.nombre }}</td>
+                <td>
+                    <ul class="list-unstyled list-inline">
+                        <li>
+                            <a href="{{ path('admin_galeria_show', { 'id': galerium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_galeria_edit', { 'id': galerium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="list-unstyled pull-right">
+        <li>
+            <a class="btn btn-success" href="{{ path('admin_galeria_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

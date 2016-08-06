@@ -1,0 +1,143 @@
+.content80{
+	width: 80%;
+	margin:0 auto 0;
+	margin-top: 20px;
+}
+
+.content-bordered{
+	width: 100%;
+	height: auto;
+	padding: 30px;
+	border-radius: 7px;
+	border: 2px solid #F5F5F5;	
+}
+
+.colmd4-margin{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.body-post{
+	padding: 30px 0px 20px 0px; 
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border: 4px solid #F5F5F5;
+	border-radius: 7px;
+}
+
+.ul-ls-none{
+	list-style: none;
+}
+
+.btn-default1{
+	background-color: #8D6CF1;
+	border-color: #E59EE6;
+}
+
+.btn-default1:hover {
+ background-color: #AA75F1;
+ border-color: #E59EE6; 
+}
+
+.cursor-hand{
+	cursor: hand;
+}
+
+.text-a-rta{
+	width: 100%;
+}
+
+.img-header-post{
+	height: 50%;
+	width: 50%
+}
+
+.content-post{
+	padding: 30px;
+}
+
+.foto-perfil{
+	height: 100%;
+	width: 100%;
+}
+
+.separador{
+	border-top: 1px solid #008cba;
+	margin: 5px;
+}
+
+/*****Galeria Post******/
+#galeria, #galeria * {box-sizing:border-box,-moz-box-sizing:border-box}
+
+#galeria {
+	/* Estilos contenedor galeria*/
+}
+
+#galeria_miniaturas {
+	margin: 0 auto;
+}
+
+#imgGaleria {
+	border: 1px solid #F2F2F2;  /* Borde de la imagen */
+	padding: 3px;
+	width: x; /* Ancho de la imagen */
+	height: x; /* Alto de la imagen */
+}
+.miniatura {
+	width:  70px;  /* Ancho de las miniaturas */
+	height:  70px;  /* Alto de las miniaturas */
+	float: left;
+	cursor: pointer;
+	padding: 5px;
+	margin: 10px 5px;
+	border: 1px solid #008cba;
+	border-radius: 5px;
+}
+.miniatura:hover {
+	opacity:.8;   /* Opacidad */
+	-moz-opacity:.8;
+	-khtml-opacity:.8;
+	filter:alpha(opacity=80);
+}
+.miniatura:active {
+	opacity:1;
+	-moz-opacity:1;
+	-khtml-opacity:1;
+	filter:alpha(opacity=80);
+}
+
+/*****Fin Galeria Post******/
+
+.img-w90{
+	max-width:90%;
+}
+
+.portada-boxshadow{
+	-webkit-box-shadow: 2px 3px 25px 1px rgba(199,119,199,0.5);
+-moz-box-shadow: 2px 3px 25px 1px rgba(199,119,199,0.5);
+box-shadow: 2px 3px 25px 1px rgba(199,119,199,0.5);
+}
+
+.li-post{
+	padding: 10px;
+}
+
+.footer{
+	color: #777;
+    background: #001;
+    border-top: 2px solid #444;
+}
+
+#footerRights {
+    background-color: #000;
+    color: #999;
+    border-top: 1px solid #1b1b1b;
+}
+
+#footerRights {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 22px;
+    text-align: center;
+    font-size: 10px;
+}

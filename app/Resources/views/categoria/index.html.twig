@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Categorías{% endblock %}
+
+{% block body %}
+    
+    
+    <div class="row">
+        <h3>Lista de Categorias</h3>
+        <div class="content80">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for categorium in categorias %}
+                    <tr>
+                        
+                        <td>{{ categorium.nombre }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('admin_categoria_show', { 'id': categorium.id }) }}">Ver</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('admin_categoria_edit', { 'id': categorium.id }) }}">Editar</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="content80">
+            <ul class="ul-ls-none">
+                <li>
+                    <a  class="btn btn-default pull-right" href="{{ path('admin_categoria_new') }}"><i class="fa fa-plus"></i> Nueva Categoría</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
